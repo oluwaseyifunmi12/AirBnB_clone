@@ -9,7 +9,14 @@ class BaseModel():
     """A Base class model"""
 
     def __init__(self, *args, **kwargs):
-        """Initializing BaseModle instance"""
+        """Initializing BaseModle instance
+
+        Args:
+                *args: Variable length argument list.
+                **kwargs: Arbitrary keyword arguments used for setting attributes.
+        
+        """
+
         if kwargs:
             for key, value in kwargs.items():
                 if key == 'created_at' or key == 'updated_at':
