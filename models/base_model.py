@@ -4,9 +4,10 @@
 import uuid
 from datetime import datetime
 
+
 class BaseModel():
     """A Base class model"""
-    
+
     def __init__(self, *args, **kwargs):
         """Initializing BaseModle instance"""
         if kwargs:
@@ -19,7 +20,7 @@ class BaseModel():
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
-        
+
     def __str__(self):
         """Return string representation of BaseMOdel instance"""
         return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
