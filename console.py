@@ -20,7 +20,7 @@ class HBNBCommand(cmd.Cmd):
     def do_EOF(self, line):
         """Another clean way to exit the interpreter\n"""
         return True
-    
+
     def do_create(self, arg):
         """Create a new instance of BaseModek, save it, and print the id """
         if not arg:
@@ -34,7 +34,7 @@ class HBNBCommand(cmd.Cmd):
         new_instance = storage.classes()[class_name]()
         new_instance.save()
         print(new_instance.id)
-        
+
     def do_show(self, arg):
         """Print the string representation of an instance"""
         if not arg:
@@ -54,8 +54,7 @@ class HBNBCommand(cmd.Cmd):
             print(storage.all()[key])
         else:
             print("** no instance found **")
-            
-    
+
     def do_all(self, arg):
         """Print all string representation of all instance"""
         arg = arg.strip()
@@ -72,8 +71,7 @@ class HBNBCommand(cmd.Cmd):
             for key, obj in storage.all().items():
                 objs.append(str(obj))
         print(objs)
-        
-        
+
     def do_update(self, arg):
         """Update an instance based on the class"""
         if not arg:
@@ -107,7 +105,7 @@ class HBNBCommand(cmd.Cmd):
             pass
         setattr(instance, attribute_name, attribute_value)
         instance.save()
-        
+
     def do_destroy(self, arg):
         """Deletes an instance based on the class name and id"""
         if not arg:
