@@ -5,7 +5,11 @@ import uuid
 from datetime import datetime
 
 
+<<<<<<< HEAD
 class BaseModel:
+=======
+class BaseModel():
+>>>>>>> origin/master
     """A Base class model"""
 
     def __init__(self, *args, **kwargs):
@@ -27,8 +31,11 @@ class BaseModel:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
+<<<<<<< HEAD
             from models import storage
             storage.new(self)
+=======
+>>>>>>> origin/master
 
     def __str__(self):
         """Return string representation of BaseMOdel instance"""
