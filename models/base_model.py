@@ -7,9 +7,16 @@ from datetime import datetime
 
 class BaseModel:
     """A Base class model"""
-    
+
     def __init__(self, *args, **kwargs):
-        """Initializing BaseModle instance"""
+        """Initializing BaseModle instance
+
+        Args:
+                *args: Variable length argument list.
+                **kwargs: Arbitrary keyword arguments used for setting attributes.
+        
+        """
+
         if kwargs:
             for key, value in kwargs.items():
                 if key == 'created_at' or key == 'updated_at':
@@ -21,8 +28,8 @@ class BaseModel:
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
             from models import storage
-            storage.new(self) 
-        
+            storage.new(self)
+
     def __str__(self):
         """Return string representation of BaseMOdel instance"""
         return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
