@@ -5,7 +5,7 @@ import uuid
 from datetime import datetime
 
 
-class BaseModel():
+class BaseModel:
     """A Base class model"""
 
     def __init__(self, *args, **kwargs):
@@ -16,7 +16,7 @@ class BaseModel():
                 **kwargs: Arbitrary keyword arguments used for setting attributes.
         
         """
-
+        
         if kwargs:
             for key, value in kwargs.items():
                 if key == 'created_at' or key == 'updated_at':
@@ -27,6 +27,9 @@ class BaseModel():
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
+            # from models import storage
+            # storage.new(self)
+            print("OK")
 
     def __str__(self):
         """Return string representation of BaseMOdel instance"""
@@ -35,9 +38,12 @@ class BaseModel():
     def save(self):
         """Update the current attribute with current datetime"""
         self.updated_at = datetime.now()
+        
+        print("Debug: Before calling storage.save()")
         """Updating the storage"""
-        from models import storage
-        storage.save()
+        # from models import storage
+        # storage.save()
+        print("OK")
 
     def to_dict(self):
         """Return a dictionary representation of the BAseMOdle instance"""
