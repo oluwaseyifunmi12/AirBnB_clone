@@ -2,12 +2,18 @@
 """A command interpreter"""
 import cmd
 from models import storage
+from models.user import User
 from models.base_model import BaseModel
 
 
 class HBNBCommand(cmd.Cmd):
     """Defines a cmd class"""
     prompt = "(hbnb) "
+    
+    classess = {
+        'BaseModel': BaseModel,
+        'User': User
+    }
 
     def emptyline(self):
         """Do nothing on empty input line."""

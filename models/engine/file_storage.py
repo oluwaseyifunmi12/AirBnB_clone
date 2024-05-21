@@ -5,6 +5,7 @@ import json
 import os
 from importlib import import_module
 from models.base_model import BaseModel
+from models.user import User
 
 class FileStorage:
     """Json file"""
@@ -42,5 +43,6 @@ class FileStorage:
     def classes(self):
         """Return a dictionary of valid classes"""
         return {
-            'BaseModel': BaseModel
+            'BaseModel': BaseModel,
+            'User': User
         }
